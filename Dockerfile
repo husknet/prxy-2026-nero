@@ -22,11 +22,8 @@ COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/node_modules ./node_modules
 
-# Only copy /public if it exists (won't break if missing)
-RUN mkdir -p ./public
-COPY --from=builder /app/public ./public 2>/dev/null || true
-
 EXPOSE 3000
 ENV NODE_ENV=production
 
+# Start the Next.js app
 CMD ["npm", "start"]
