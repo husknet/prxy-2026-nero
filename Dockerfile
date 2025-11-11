@@ -4,7 +4,6 @@ WORKDIR /app
 
 COPY package*.json ./
 RUN npm install
-
 COPY . .
 RUN npm run build
 
@@ -17,11 +16,11 @@ ENV NODE_ENV=production
 COPY --from=builder /app/.next/standalone ./standalone
 COPY --from=builder /app/.next/static ./standalone/.next/static
 
-# Some projects don’t have /public; create it just in case
 RUN mkdir -p ./standalone/public
 
-EXPOSE 3000
-ENV PORT=3000
+# 🔥 Change port from 3000 → 8080
+EXPOSE 8080
+ENV PORT=8080
 
-# Run Next.js’s built-in standalone server from the correct path
+# Start the server
 CMD ["node", "standalone/server.js"]
